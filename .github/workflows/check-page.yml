@@ -1,0 +1,29 @@
+name: Check the public page
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Page is public over HTTPS and identifies the app and developer
+        run: |
+          URL=https://marcelpintoberlin-hue.github.io/wonderdoku-privacy/
+          for i in $(seq 1 20); do
+            CODE=$(curl -s -o page.html -w '%{http_code}' "$URL" || true)
+            [ "$CODE" = "200" ] && break
+            echo "HTTP $CODE, waiting for GitHub Pages..."; sleep 30
+          done
+          echo "HTTP $CODE $URL"
+          [ "$CODE" = "200" ] || exit 1
+          grep -q "WonderDoku — Privacy Policy" page.html
+          grep -q "MP Tech DE" page.html
+          grep -q "de.mptech.wonderdoku" page.html
+          echo "Page OK (no login: curl sends no credentials)."
+          echo "Links:"
+          for u in $(grep -o 'href="https[^"]*"' page.html | cut -d'"' -f2 | sort -u); do
+            echo "$(curl -s -o /dev/null -L -w '%{http_code}' --max-time 30 "$u") $u"
+          done
