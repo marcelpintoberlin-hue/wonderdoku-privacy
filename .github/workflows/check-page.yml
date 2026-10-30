@@ -1,6 +1,7 @@
 name: Check the public page
 on:
   workflow_dispatch:
+  page_build:
   push:
     branches: [main]
 permissions:
@@ -14,8 +15,9 @@ jobs:
           URL=https://marcelpintoberlin-hue.github.io/wonderdoku-privacy/
           for i in $(seq 1 20); do
             CODE=$(curl -s -o page.html -w '%{http_code}' "$URL" || true)
-            [ "$CODE" = "200" ] && break
-            echo "HTTP $CODE, waiting for GitHub Pages..."; sleep 30
+            # Wait until the new version (not an older build) is online.
+            [ "$CODE" = "200" ] && grep -q "WonderDoku — Privacy Policy" page.html && break
+            echo "HTTP $CODE, waiting for the GitHub Pages deployment..."; sleep 30
           done
           echo "HTTP $CODE $URL"
           [ "$CODE" = "200" ] || exit 1
