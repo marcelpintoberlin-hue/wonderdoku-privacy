@@ -25,7 +25,17 @@ jobs:
           grep -q "MP Tech DE" page.html
           grep -q "de.mptech.wonderdoku" page.html
           echo "Page OK (no login: curl sends no credentials)."
+          T=https://marcelpintoberlin-hue.github.io/wonderdoku-privacy/terms.html
+          for i in $(seq 1 20); do
+            TC=$(curl -s -o terms.html -w '%{http_code}' "$T" || true)
+            [ "$TC" = "200" ] && grep -q "WonderDoku — Terms of Use" terms.html && break
+            echo "Terms HTTP $TC, waiting..."; sleep 30
+          done
+          echo "HTTP $TC $T"
+          [ "$TC" = "200" ] && grep -q "WonderDoku — Terms of Use" terms.html && grep -q "de.mptech.wonderdoku" terms.html
+          grep -q "Firebase Crashlytics" page.html || { echo "policy does not describe Firebase"; exit 1; }
+          echo "Terms OK."
           echo "Links:"
-          for u in $(grep -o 'href="https[^"]*"' page.html | cut -d'"' -f2 | sort -u); do
+          for u in $(cat page.html terms.html | grep -o 'href="https[^"]*"' | cut -d'"' -f2 | sort -u); do
             echo "$(curl -s -o /dev/null -L -w '%{http_code}' --max-time 30 "$u") $u"
           done
