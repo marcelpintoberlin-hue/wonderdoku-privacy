@@ -86,7 +86,7 @@
       <dt>Developer</dt><dd>MP Tech DE, Berlin, Germany</dd>
       <dt>Contact</dt><dd><a href="mailto:marcelpinto.berlin@gmail.com">marcelpinto.berlin@gmail.com</a></dd>
     </dl>
-    <p class="note"><strong>In short:</strong> WonderDoku has no user accounts and no servers of its own. Your game progress and settings stay on your device. We (MP Tech DE) do not receive or sell your personal data. WonderDoku is intended for players aged 13 and over. The app uses services from Google for advertising (Google AdMob), consent choices (Google User Messaging Platform), in-app purchases (Google Play Billing), ratings (Google Play), and — only where your choices allow it — usage statistics and crash reports (Google Analytics for Firebase and Firebase Crashlytics). These services may process limited data as described below; for advertising, Google may share limited technical data with the ad buyers that take part in its ad auctions (section 3).</p>
+    <p class="note"><strong>In short:</strong> WonderDoku has no user accounts and no servers of its own. Your game progress and settings stay on your device. We (MP Tech DE) do not receive your personal data and do not sell it for money (US state laws use broader definitions; see section 13). WonderDoku is intended for players aged 13 and over. The app uses services from Google for advertising (Google AdMob), consent choices (Google User Messaging Platform), in-app purchases (Google Play Billing), ratings (Google Play), and — only where your choices allow it — usage statistics and crash reports (Google Analytics for Firebase and Firebase Crashlytics). These services may process limited data as described below; for advertising, Google may share limited technical data with the ad buyers that take part in its ad auctions (section 3).</p>
     <nav aria-label="Contents">
       <ol>
         <li><a href="#controller">Who is responsible</a></li>
@@ -135,7 +135,7 @@
     <p>WonderDoku is intended for teens and adults (13 and over). Its ad requests are set up as follows:</p>
     <ul>
       <li>ads are limited to content rated suitable for teens (rating T or lower); ads rated for mature audiences are not requested;</li>
-      <li>the app does not request the Android advertising ID permission (<code>AD_ID</code>), so the app does not provide the advertising ID for ads, which limits ad personalization;</li>
+      <li>the app does not request the Android advertising ID permission (<code>AD_ID</code>). On Android 13 and later, Google Play services then provides a string of zeros instead of the advertising ID; on earlier Android versions, the advertising ID may still be available to Google's ad software. Without the advertising ID, ad personalization is limited;</li>
       <li>in the EEA, the United Kingdom and Switzerland, ads are only requested once the consent status allows it, and Google uses your data for personalized ads only if you agree in the consent message (section 4); otherwise Google shows non-personalized or limited ads;</li>
       <li>Google applies its own protections for younger users; for example, Google's policies do not allow personalized ads for users it knows to be under 18.</li>
     </ul>
@@ -155,6 +155,7 @@
     <h2>4. Consent choices</h2>
     <p>In regions where the law requires it, for example the European Economic Area, the United Kingdom and Switzerland, the app uses the Google User Messaging Platform (a consent management tool certified by Google) to ask for and store your choices before ads are requested. Ads are only requested once the consent status allows it.</p>
     <p>Where this applies, you can review or change your choice at any time in <strong>Settings → Privacy and data → Manage consent</strong>. Your choice is stored on your device.</p>
+    <p>In US states with consumer privacy laws (for example California), the same entry in Settings lets you opt out of the "sale" or "sharing" of your personal information for targeted advertising (section 13). This option is shown only where these laws apply.</p>
     <p>The same choices also decide whether usage statistics and crash reports are collected (section 8). If you are below the age at which you can give this consent yourself in your country (between 13 and 16 in the EEA, depending on the country), please ask a parent or guardian before you make your choice, or choose not to consent.</p>
   </section>
 
@@ -205,7 +206,7 @@
 
   <section id="sharing">
     <h2>10. Sharing and international transfers</h2>
-    <p>We (MP Tech DE) do not receive, sell or rent your personal data. The services in the app are provided by Google, as described in sections 3 to 8. For advertising, analytics and fraud prevention, these Google services may share limited data (such as the IP address, which can indicate an approximate location, app interactions, diagnostics and device identifiers other than the advertising ID) with other companies: for ads, with the ad buyers and bidding partners that take part in Google's ad auctions (section 3). This is what the Data safety section of WonderDoku's Google Play page shows as data that may be shared. Google and these partners may process data on servers outside your country, including in the United States. For transfers from the EEA, Google relies on the EU-U.S. Data Privacy Framework and on Standard Contractual Clauses (see <a href="https://business.safety.google/privacy/" rel="noopener">Google's business data privacy information</a>).</p>
+    <p>We (MP Tech DE) do not receive your personal data, and we do not sell or rent it for money (for how US state laws define "selling" and "sharing", see section 13). The services in the app are provided by Google, as described in sections 3 to 8. For advertising, analytics and fraud prevention, these Google services may share limited data (such as the IP address, which can indicate an approximate location, app interactions, diagnostics and device identifiers; on Android 13 and later these do not include the advertising ID, see section 3) with other companies: for ads, with the ad buyers and bidding partners that take part in Google's ad auctions (section 3). This is what the Data safety section of WonderDoku's Google Play page shows as data that may be shared. Google and these partners may process data on servers outside your country, including in the United States. For transfers from the EEA, Google relies on the EU-U.S. Data Privacy Framework and on Standard Contractual Clauses (see <a href="https://business.safety.google/privacy/" rel="noopener">Google's business data privacy information</a>).</p>
   </section>
 
   <section id="retention">
@@ -221,7 +222,7 @@
 
   <section id="children">
     <h2>12. Age requirement and children</h2>
-    <p>WonderDoku is intended for teens and adults aged 13 and over. It is not directed to children under 13, and we do not knowingly collect personal information from children under 13. The app has no accounts, chat, social features or user-generated content, and it does not ask for names, e-mail addresses or photos. Ads are limited to content rated suitable for teens and the app does not use the advertising ID (see section 3).</p>
+    <p>WonderDoku is intended for teens and adults aged 13 and over. It is not directed to children under 13, and we do not knowingly collect personal information from children under 13. The app has no accounts, chat, social features or user-generated content, and it does not ask for names, e-mail addresses or photos. Ads are limited to content rated suitable for teens and the app does not request the advertising ID permission (see section 3).</p>
     <p>Parents or guardians who have questions, or who believe that a child under 13 has provided personal information through the app, can contact us at <a href="mailto:marcelpinto.berlin@gmail.com">marcelpinto.berlin@gmail.com</a>. Because the app keeps game data only on the device, the data can also be removed in the app (section 11) or by uninstalling it.</p>
   </section>
 
@@ -230,7 +231,14 @@
     <p>Under the GDPR and similar laws, you have the right to access your personal data, to correct or delete it, to restrict or object to its processing, and to receive it in a portable format. Where processing is based on consent, you can withdraw your consent at any time, without affecting earlier processing.</p>
     <p>Because WonderDoku stores game data only on your device and we hold no account data, we usually cannot identify you or find data about you. You can delete your data directly in the app (section 11). For processing by Google, you can use the tools in your <a href="https://myaccount.google.com/" rel="noopener">Google Account</a> or contact Google.</p>
     <p>You also have the right to lodge a complaint with a data protection supervisory authority, for example the authority where you live, or the authority responsible for us: the <a href="https://www.datenschutz-berlin.de/" rel="noopener">Berlin Commissioner for Data Protection and Freedom of Information</a>.</p>
-    <p>Residents of California and other places with similar laws: we do not sell or share personal information for cross-context behavioral advertising.</p>
+    <p><strong>US state privacy laws (for example California).</strong> We do not receive your personal data and we do not sell it for money. US state privacy laws, such as the California Consumer Privacy Act as amended by the California Privacy Rights Act (CCPA), define "selling" and "sharing" broadly. When you use WonderDoku in the United States, Google AdMob may use information collected through the ads in the app to show you ads based on your activity in other apps and websites (personalized or "targeted" ads), and the ad buyers in Google's auctions may receive limited information in order to bid (section 3). Unless you opt out, the app does not turn on Google's restricted data processing mode for these ad requests. Under these laws, this may count as "selling" personal information or "sharing" it for cross-context behavioral advertising.</p>
+    <ul>
+      <li><strong>Personal information involved:</strong> identifiers (such as the IP address and device identifiers), internet or other electronic network activity (such as interactions with the app and its ads) and the approximate location derived from the IP address.</li>
+      <li><strong>Recipients:</strong> Google and the ad buyers and bidding partners that take part in Google's ad auctions (sections 3 and 10).</li>
+      <li><strong>How to opt out:</strong> in the app, open <strong>Settings → Privacy and data → Manage consent</strong> and choose "Don't sell or share my data" (shown in US states with these laws). Your choice is stored on your device and passed to Google, which then restricts data processing for your ad requests, so you are not shown personalized ads. You can also, on your Android device, open Settings → Google → All services → Ads and choose "Delete advertising ID" (on older Android versions: "Opt out of Ads Personalization"); Google then no longer uses the advertising ID for personalized ads on that device.</li>
+      <li><strong>Your requests:</strong> you can ask to know, correct or delete personal information, or to opt out of its sale or sharing, by e-mail (section 16). Because the game keeps its data on your device and we hold no identifiers that let us recognise you, we may not be able to link a request to specific data; you can delete the game data in the app (section 11), and Google offers its own tools in your Google Account. We will not treat you differently for using these rights.</li>
+      <li>We do not have actual knowledge that we sell or share the personal information of consumers under 16 years of age.</li>
+    </ul>
   </section>
 
   <section id="security">
